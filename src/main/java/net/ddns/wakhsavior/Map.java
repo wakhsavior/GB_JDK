@@ -22,13 +22,14 @@ public class Map extends JPanel {
     private boolean isGameOver;
     private boolean isInitialized;
 
-    private int fieldSizeY = 3;
-    private int fieldSizeX = 3;
+    private int fieldSizeY;
+    private int fieldSizeX;
     private int[][] field;
     private int panelWidth;
     private int panelHeight;
     private int cellWidth;
     private int cellHeight;
+    private int wLen;
 
     Map() {
 
@@ -73,7 +74,10 @@ public class Map extends JPanel {
 
 
     void startNewGame(int mode, int fSzX, int fSzY, int wLen) {
+        fieldSizeY = fSzY;
+        fieldSizeX = fSzX;
         System.out.printf("Mode: %d\nSize: x=%d;\nWin Length: %d\n", mode, fSzX, fSzY, wLen);
+        this.wLen = wLen;
         initMap();
         isGameOver = false;
         isInitialized = true;
@@ -90,8 +94,8 @@ public class Map extends JPanel {
         if (!isInitialized) return;
         panelWidth = getWidth();
         panelHeight = getHeight();
-        cellHeight = panelHeight / 3;
-        cellWidth = panelWidth / 3;
+        cellHeight = panelHeight / fieldSizeY;
+        cellWidth = panelWidth / fieldSizeX;
 
         for (int y = 0; y < fieldSizeY; y++) {
             for (int x = 0; x < fieldSizeX; x++) {
@@ -101,11 +105,11 @@ public class Map extends JPanel {
         }
 
         g.setColor(Color.BLACK);
-        for (int h = 0; h < 3; h++) {
+        for (int h = 0; h < fieldSizeY; h++) {
             int y = h * cellHeight;
             g.drawLine(0, y, panelWidth, y);
         }
-        for (int w = 0; w < 3; w++) {
+        for (int w = 0; w < fieldSizeX; w++) {
             int x = w * cellWidth;
             g.drawLine(x, 0, x, panelHeight);
         }
@@ -158,8 +162,6 @@ public class Map extends JPanel {
     }
 
     private void initMap() {
-        fieldSizeY = 3;
-        fieldSizeX = 3;
         field = new int[fieldSizeY][fieldSizeX];
         for (int i = 0; i < fieldSizeY; i++) {
             for (int j = 0; j < fieldSizeX; j++) {

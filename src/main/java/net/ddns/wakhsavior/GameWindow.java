@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class GameWindow extends JFrame {
     private static final int WINDOW_HEIGHT = 555;
     private static final int WINDOW_WIDTH = 507;
-    private static final int WINDOW_POSX = 800;
-    private static final int WINDOW_POSY = 300;
+    private static final int WINDOW_POSX = 0;
+    private static final int WINDOW_POSY = 0;
     JButton btnStart = new JButton("New Game");
     JButton btnExit = new JButton("Exit");
     Map map;
