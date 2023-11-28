@@ -1,4 +1,4 @@
-package net.ddns.wakhsavior.Seminar_01.project;
+package Seminar_02.project;
 
 public interface FrontendAction {
     void front();

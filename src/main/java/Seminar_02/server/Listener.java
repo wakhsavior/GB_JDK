@@ -1,4 +1,4 @@
-package net.ddns.wakhsavior.Seminar_01.server;
+package Seminar_02.server;
 
 public interface Listener {
     void messageReceive(String message);

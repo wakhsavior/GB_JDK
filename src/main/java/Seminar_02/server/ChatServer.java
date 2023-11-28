@@ -1,6 +1,4 @@
-package net.ddns.wakhsavior.Seminar_01.server;
-
-import java.awt.event.ActionListener;
+package Seminar_02.server;
 
 public class ChatServer implements ServerListener {
     boolean isServerWorking;
