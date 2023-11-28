@@ -1,4 +1,4 @@
-package net.ddns.wakhsavior;
+package net.ddns.wakhsavior.Seminar_01;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
