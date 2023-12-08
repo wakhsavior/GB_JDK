@@ -8,6 +8,7 @@ import balls.common.MainCanvas;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 
 public class MainWindow extends JFrame implements CanvasReapaintListner {
     private static final int WINDOW_HEIGHT = 800;
