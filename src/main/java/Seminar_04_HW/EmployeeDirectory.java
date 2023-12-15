@@ -29,16 +29,19 @@ public class EmployeeDirectory {
         if (employees.isEmpty()) {
             return null;
         }
-        ArrayList<String> phones = new ArrayList<>();
-        employees.values().stream().filter(x -> x.getName().equals(name)).forEach(x -> phones.add(x.getPhoneNumber()));
-        return phones;
+       return employees.values().stream().
+                filter(x -> x.getName().equals(name)).
+                map(x->x.getPhoneNumber()).
+                collect(Collectors.toCollection(ArrayList::new));
     }
 
     public ArrayList<Employee> searchEmployeeByExperience(int experience) {
         if (employees.isEmpty()) {
             return null;
         }
-        return employees.values().stream().filter(x->x.getExperienceMonth()==experience).collect(Collectors.toCollection(ArrayList::new));
+        return employees.values().stream().
+                filter(x->x.getExperienceMonth()==experience).
+                collect(Collectors.toCollection(ArrayList::new));
     }
 
     public ArrayList<Employee> searchEmployee(int id) {
@@ -46,18 +49,21 @@ public class EmployeeDirectory {
             return null;
         }
         ArrayList<Employee> curEmployees = new ArrayList<>();
-        employees.keySet().stream().filter(x -> x == id).forEach(x -> curEmployees.add(employees.get(x)));
-        return curEmployees;
+
+        return employees.keySet().stream().filter(x -> x == id).
+                map(x->employees.get(x)).
+                collect(Collectors.toCollection(ArrayList::new));
     }
 
 
     public ArrayList<Employee> searchEmployee(String name) {
-        ArrayList<Employee> curEmployees = new ArrayList<>();
+
         if (employees.isEmpty()) {
             return null;
         }
-        employees.values().stream().filter(x -> x.getName().equals(name)).forEach(x -> curEmployees.add(x));
-        return curEmployees;
+        return employees.values().stream().
+                filter(x -> x.getName().equals(name)).
+                collect(Collectors.toCollection(ArrayList::new));
     }
 
     public Map<Integer, Employee> getAllEmployees() {
