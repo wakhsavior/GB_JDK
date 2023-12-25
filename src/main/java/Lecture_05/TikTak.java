@@ -21,12 +21,12 @@ public class TikTak implements Runnable {
 
                 try {
                     if (threadNum != curThread) {
-                        monitor.notify();
+                        monitor.notifyAll();
                         monitor.wait();
                     } else {
                         System.out.print(bracket);
                         Thread.sleep(300);
-                        monitor.notify();
+                        monitor.notifyAll();
                         monitor.wait();
                         curThread = (curThread+1)%numberOfThreads;
                     }
